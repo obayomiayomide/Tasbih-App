@@ -1,0 +1,10 @@
+.iconProp {
+  max-width: 425px;
+  min-width: 325px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  position: absolute;
+  bottom: 30px;
+  margin: auto;
+}

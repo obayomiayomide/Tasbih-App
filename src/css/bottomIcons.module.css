@@ -1,0 +1,23 @@
+.buttons {
+  background-color: #819ca8;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  padding: 3px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.buttons:active {
+  background-color: #59717d;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  padding: 3px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

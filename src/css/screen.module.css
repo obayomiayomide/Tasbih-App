@@ -1,0 +1,15 @@
+.screen {
+  background-color: #81a893;
+  width: 125px;
+  height: 45px;
+  text-align: right;
+  padding: 2px 5px;
+  border-radius: 5px;
+  margin-top: 60px;
+  margin-bottom: 15px;
+}
+
+.count {
+  font-weight: bold;
+  font-size: 36px;
+}
