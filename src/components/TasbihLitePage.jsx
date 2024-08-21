@@ -23,7 +23,9 @@ const TasbihLitePage = () => {
   }, [theme]);
 
   function changeTheme() {
-    setTheme(themeColor[getRandomTheme()]);
+    if (!isDarkMode) {
+      setTheme(themeColor[getRandomTheme()]);
+    }
   }
 
   function darkMode() {
