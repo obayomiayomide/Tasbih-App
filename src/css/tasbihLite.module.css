@@ -15,7 +15,7 @@ body {
   min-width: 325px;
 }
 
-@media (min-width: 325) and (max-width: 425) {
+@media (min-width: 325px) and (max-width: 425px) {
   body {
     margin: 0;
     background-color: #465a65;
@@ -28,7 +28,7 @@ body {
   .tasbihContainer {
     margin: 0;
     position: relative;
-    height: 100dvh;
+    height: 95svh;
     max-width: 425px;
     min-width: 325px;
   }
