@@ -21,7 +21,7 @@ body {
     background-color: #465a65;
     display: flex;
     justify-content: center;
-    height: 100vh;
+    height: 100svh;
     font-family: Arial, Helvetica, sans-serif;
   }
 
