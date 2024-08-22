@@ -8,7 +8,13 @@ import counterIcon from "../assets/images/Counter-icon.svg";
 import themeIcon from "../assets/images/Theme-icon.svg";
 import modeIcon from "../assets/images/Mode-icon.svg";
 
-function BottomIcons({ isMuted, setIsMuted, changeTheme, darkMode }) {
+function BottomIcons({
+  isMuted,
+  setIsMuted,
+  changeTheme,
+  darkMode,
+  handleUpdateCount,
+}) {
   return (
     <>
       <div className={styles.buttons}>
@@ -21,7 +27,7 @@ function BottomIcons({ isMuted, setIsMuted, changeTheme, darkMode }) {
         <Icons icon={viewIcon} />
       </div>
       <div className={styles.buttons}>
-        <Icons icon={counterIcon} />
+        <Icons onClick={handleUpdateCount} icon={counterIcon} />
       </div>
       <div className={styles.buttons}>
         <Icons onClick={changeTheme} icon={themeIcon} />

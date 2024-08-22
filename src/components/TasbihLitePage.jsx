@@ -10,8 +10,29 @@ const TasbihLitePage = () => {
   const [theme, setTheme] = useState("#465a65");
   const [isMuted, setIsMuted] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [reminderCount, setReminderCount] = useState("100");
 
   let themeColor = ["#465a65", "#1D313A", "#59717d", "#14262E"];
+
+  let rsound = new Audio("./sounds/rsound.wav");
+
+  const handleUpdateCount = () => {
+    const newReminderCount = Number(
+      prompt("Enter your new reminder count below")
+    );
+    if (newReminderCount) {
+      setReminderCount(newReminderCount);
+    }
+  };
+
+  useEffect(() => {
+    if (count == reminderCount) {
+      rsound.play();
+      alert(
+        "Assalmualyk Brother! you are now at your reminder count. Please focus"
+      );
+    }
+  }, [count]);
 
   function getRandomTheme() {
     const randomTheme = Math.floor(Math.random() * themeColor.length);
@@ -40,7 +61,10 @@ const TasbihLitePage = () => {
 
   return (
     <div className={styles.tasbihContainer}>
-      <Heading count={count} />
+      <Heading
+        handleUpdateCount={handleUpdateCount}
+        reminderCount={reminderCount}
+      />
       <CounterContainer count={count} setCount={setCount} isMuted={isMuted} />
       <IconContainer>
         <BottomIcons
@@ -48,6 +72,7 @@ const TasbihLitePage = () => {
           setIsMuted={setIsMuted}
           changeTheme={changeTheme}
           darkMode={darkMode}
+          handleUpdateCount={handleUpdateCount}
         />
       </IconContainer>
     </div>
