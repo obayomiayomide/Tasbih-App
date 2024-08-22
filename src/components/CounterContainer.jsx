@@ -6,27 +6,27 @@ import styles from "../css/counterContainer.module.css";
 function CounterContainer({ count, setCount, isMuted }) {
   let tclick = new Audio("./sounds/tclick.wav");
   function handleIncrease() {
-    console.log(isMuted);
-    setCount((prev) => prev + 1);
     if (!isMuted) {
       tclick.play();
     }
+    console.log(isMuted);
+    setCount((prev) => prev + 1);
   }
 
   function handleDecrease() {
-    if (count > 0) {
-      setCount((prev) => prev - 1);
-    }
     if (!isMuted) {
       tclick.play();
+    }
+    if (count > 0) {
+      setCount((prev) => prev - 1);
     }
   }
 
   function handleReset() {
-    setCount(0);
     if (!isMuted) {
       tclick.play();
     }
+    setCount(0);
   }
   return (
     <div className={styles.counterContainer}>
