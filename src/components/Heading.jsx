@@ -27,7 +27,10 @@ const Heading = ({ count }) => {
     <div className={styles.headingContainer}>
       <h1 className={styles.headingText}>Tasbih Lite</h1>
       <p className={styles.reminderText} onClick={handleUpdateCount}>
-        Reminder: <span className={styles.reminderCount}>{reminderCount}</span>
+        Reminder:{" "}
+        <span className={styles.reminderCount}>
+          <strong>{reminderCount}</strong>
+        </span>
       </p>
     </div>
   );

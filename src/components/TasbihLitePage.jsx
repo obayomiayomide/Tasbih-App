@@ -11,7 +11,7 @@ const TasbihLitePage = () => {
   const [isMuted, setIsMuted] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  let themeColor = ["#465a65", "green", "#59717d", "orange"];
+  let themeColor = ["#465a65", "#1D313A", "#59717d", "#14262E"];
 
   function getRandomTheme() {
     const randomTheme = Math.floor(Math.random() * themeColor.length);
