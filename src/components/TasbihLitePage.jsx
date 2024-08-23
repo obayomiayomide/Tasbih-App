@@ -12,10 +12,9 @@ const TasbihLitePage = () => {
   const [viberate, setViberate] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [reminderCount, setReminderCount] = useState("100");
+  const [reminderSound, setReminderSound] = useState(null);
 
   let themeColor = ["#465a65", "#1D313A", "#59717d", "#14262E"];
-
-  let rsound = new Audio("./sounds/rsound.wav");
 
   function viberation() {
     if (!viberate && navigator.vibrate) {
@@ -23,6 +22,25 @@ const TasbihLitePage = () => {
     } else {
       console.log("Vibration not supported");
     }
+  }
+
+  function reminder() {
+    if (!reminderSound) {
+      let rsound = new Audio("./sounds/rsound.wav");
+      rsound.addEventListener("ended", () => {
+        setReminderSound(null);
+      });
+      setReminderSound(rsound);
+      console.log("this");
+      rsound.play();
+      alertReminder();
+    }
+  }
+
+  function alertReminder() {
+    alert(
+      "Assalmualyk Brother! you are now at your reminder count. Please focus"
+    );
   }
 
   const handleUpdateCount = () => {
@@ -35,12 +53,9 @@ const TasbihLitePage = () => {
   };
 
   useEffect(() => {
-    if (count == reminderCount) {
+    if (count === reminderCount) {
       viberation();
-      rsound.play();
-      alert(
-        "Assalmualyk Brother! you are now at your reminder count. Please focus"
-      );
+      reminder();
     }
   }, [count]);
 

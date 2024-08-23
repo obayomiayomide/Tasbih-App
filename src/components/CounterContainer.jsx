@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Screen from "./Screen";
 import ControlButtons from "./ControlButtons";
 import styles from "../css/counterContainer.module.css";
 
 function CounterContainer({ count, setCount, isMuted }) {
   const [clickSound, setClickSound] = useState(null);
+
+  useEffect(() => {
+    const persistedCount = Number(localStorage.getItem("persistedCount"));
+    if (persistedCount) {
+      setCount(persistedCount);
+    }
+  }, [count]);
 
   function click() {
     if (!clickSound) {
@@ -23,6 +30,7 @@ function CounterContainer({ count, setCount, isMuted }) {
     }
     console.log(isMuted);
     setCount((prev) => prev + 1);
+    localStorage.setItem("persistedCount", count + 1);
   }
 
   function handleDecrease() {
@@ -31,6 +39,7 @@ function CounterContainer({ count, setCount, isMuted }) {
     }
     if (count > 0) {
       setCount((prev) => prev - 1);
+      localStorage.setItem("persistedCount", count - 1);
     }
   }
 
@@ -39,6 +48,7 @@ function CounterContainer({ count, setCount, isMuted }) {
       click();
     }
     setCount(0);
+    localStorage.setItem("persistedCount", 0);
   }
   return (
     <div className={styles.counterContainer}>
