@@ -9,12 +9,21 @@ const TasbihLitePage = () => {
   const [count, setCount] = useState(0);
   const [theme, setTheme] = useState("#465a65");
   const [isMuted, setIsMuted] = useState(false);
+  const [viberate, setViberate] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [reminderCount, setReminderCount] = useState("100");
 
   let themeColor = ["#465a65", "#1D313A", "#59717d", "#14262E"];
 
   let rsound = new Audio("./sounds/rsound.wav");
+
+  function viberation() {
+    if (!viberate && navigator.vibrate) {
+      navigator.vibrate(250);
+    } else {
+      console.log("Vibration not supported");
+    }
+  }
 
   const handleUpdateCount = () => {
     const newReminderCount = Number(
@@ -27,6 +36,7 @@ const TasbihLitePage = () => {
 
   useEffect(() => {
     if (count == reminderCount) {
+      viberation();
       rsound.play();
       alert(
         "Assalmualyk Brother! you are now at your reminder count. Please focus"
@@ -73,6 +83,8 @@ const TasbihLitePage = () => {
           changeTheme={changeTheme}
           darkMode={darkMode}
           handleUpdateCount={handleUpdateCount}
+          viberate={viberate}
+          setViberate={setViberate}
         />
       </IconContainer>
     </div>
