@@ -49,8 +49,16 @@ const TasbihLitePage = () => {
     );
     if (newReminderCount) {
       setReminderCount(newReminderCount);
+      setReminderCount(localStorage.setItem("storeReminder", newReminderCount));
     }
   };
+
+  useEffect(() => {
+    const storeReminder = Number(localStorage.getItem("storeReminder"));
+    if (storeReminder) {
+      setReminderCount(storeReminder);
+    }
+  });
 
   useEffect(() => {
     if (count === reminderCount) {
